@@ -218,16 +218,19 @@ namespace PuppyProxy
 
                 if (ServerTcpClient.Client != null)
                 {
-                    TcpState serverState = GetTcpRemoteState(ServerTcpClient);
+                    // For some reason always returns unknown state
+                    // and causes the socket to be prematurely closed
+                    
+                    //TcpState serverState = GetTcpRemoteState(ServerTcpClient);
 
-                    if (serverState == TcpState.Established
-                        || serverState == TcpState.Listen
-                        || serverState == TcpState.SynReceived
-                        || serverState == TcpState.SynSent
-                        || serverState == TcpState.TimeWait)
-                    {
+                    //if (serverState == TcpState.Established
+                    //    || serverState == TcpState.Listen
+                    //    || serverState == TcpState.SynReceived
+                    //    || serverState == TcpState.SynSent
+                    //    || serverState == TcpState.TimeWait)
+                    //{
                         serverSocketActive = true;
-                    }
+                    //}
                 }
             }
 
